@@ -3,134 +3,76 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0A1220">
 <title>Offer Clarity Scorer — Kartik Clarity</title>
-<meta name="description" content="Score your offer across the 8 dimensions that decide whether buyers act — free, no sign-up.">
+<meta name="description" content="Score your offer across 8 clarity dimensions. Free, deterministic, evidence-based, and no sign-up required.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="assets/ocs.css">
 </head>
 <body>
-
 <header class="topbar">
   <div class="topbar-inner">
-    <div class="brand">
-      <a href="index.html" style="display:flex;align-items:center;gap:10px;">
-        <img src="assets/logo-circle.png" alt="Kartik Clarity" class="brand-mark">
-        <span class="brand-word">Kartik Clarity</span>
-      </a>
-    </div>
-    <nav class="topnav" id="topnav">
+    <a class="brand" href="index.html" aria-label="Kartik Clarity home"><span class="brand-mark brand-mark-text">KC</span><span class="brand-word">Kartik Clarity</span></a>
+    <nav class="topnav" id="topnav" aria-label="Primary navigation">
       <a href="index.html#architecture">The Architecture</a>
       <a href="index.html#zones">Leak Zones</a>
       <a href="offer-clarity-scorer.html" aria-current="page">Offer Scorer</a>
       <a href="index.html#contact" class="topnav-cta">Book a diagnostic</a>
     </nav>
-    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="topnav">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="topnav"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <main class="ocs">
-
-  <!-- ===================== INTRO ===================== -->
   <section class="ocs-intro" id="ocsIntro">
     <div class="ocs-intro-inner">
-      <p class="ocs-kicker">Free diagnostic &middot; no sign-up &middot; ~4 minutes</p>
-      <h1 class="ocs-title">Offer Clarity Scorer<sup class="ocs-tm">™</sup></h1>
-      <p class="ocs-sub">Answer 8 short questions about your offer, in your own words. You'll get a deterministic, evidence-based read on exactly where a buyer loses the thread — and what to fix first.</p>
-      <ul class="ocs-promise">
-        <li>Scored only from what you actually write — nothing invented</li>
-        <li>Tells you when there isn't enough to go on, instead of guessing</li>
-        <li>No account, no email required to see your results</li>
-      </ul>
-      <button class="btn-primary btn-large" id="ocsStart" type="button">Start the diagnostic</button>
+      <div class="ocs-eyebrow-row"><p class="ocs-kicker">FREE DIAGNOSTIC</p><span class="ocs-dot"></span><span class="ocs-mini">NO SIGN-UP · ~4 MINUTES</span></div>
+      <h1 class="ocs-title">Offer Clarity<br><em>Scorer</em><sup class="ocs-tm">™</sup></h1>
+      <p class="ocs-sub">Eight short questions. Your own words. A consistent read on where a buyer may lose the thread — and which clarity leak deserves attention first.</p>
+      <div class="ocs-proof-row"><span>8 dimensions</span><span>Deterministic scoring</span><span>No external data</span></div>
+      <button class="btn-primary btn-large ocs-start" id="ocsStart" type="button"><span>Start the diagnostic</span><span aria-hidden="true">→</span></button>
+      <p class="ocs-reassurance">You can skip any question. Results stay in your browser.</p>
     </div>
   </section>
 
-  <!-- ===================== INTAKE (wizard) ===================== -->
   <section class="ocs-wizard" id="ocsWizard" hidden>
     <div class="ocs-wizard-inner">
-
-      <div class="ocs-progress" role="progressbar" aria-valuemin="1" aria-valuemax="8" aria-valuenow="1" id="ocsProgress">
-        <div class="ocs-progress-track"><div class="ocs-progress-fill" id="ocsProgressFill"></div></div>
-        <span class="ocs-progress-label" id="ocsProgressLabel">Question 1 of 8</span>
+      <div class="ocs-progress-wrap">
+        <div class="ocs-progress-meta"><span id="ocsProgressLabel">Question 1 of 8</span><span id="ocsProgressPercent">13%</span></div>
+        <div class="ocs-progress" role="progressbar" aria-valuemin="1" aria-valuemax="8" aria-valuenow="1" id="ocsProgress"><div class="ocs-progress-track"><div class="ocs-progress-fill" id="ocsProgressFill"></div></div></div>
       </div>
-
-      <form id="ocsForm" novalidate>
-        <div id="ocsSteps"></div>
-      </form>
-
+      <form id="ocsForm" novalidate><div id="ocsSteps"></div></form>
       <div class="ocs-nav">
-        <button type="button" class="btn-ghost" id="ocsBack">Back</button>
-        <button type="button" class="ocs-skip" id="ocsSkip">Skip this one — I don't have it yet</button>
-        <button type="button" class="btn-primary" id="ocsNext">Next</button>
+        <button type="button" class="btn-ghost ocs-back" id="ocsBack">← Back</button>
+        <button type="button" class="ocs-skip" id="ocsSkip">Skip — I don't have it yet</button>
+        <button type="button" class="btn-primary ocs-next" id="ocsNext">Next <span aria-hidden="true">→</span></button>
       </div>
       <p class="ocs-error" id="ocsError" role="alert" hidden></p>
     </div>
   </section>
 
-  <!-- ===================== REPORT ===================== -->
   <section class="ocs-report" id="ocsReport" hidden aria-live="polite">
     <div class="ocs-report-inner">
-
-      <div class="ocs-report-head">
-        <p class="ocs-kicker">Your results</p>
-        <h2 class="ocs-report-title">Offer Clarity Report</h2>
-      </div>
-
+      <div class="ocs-report-head"><p class="ocs-kicker">YOUR RESULTS</p><h2 class="ocs-report-title">Offer Clarity Report</h2><p class="ocs-report-sub">A consistent read of the evidence you supplied — not a guess about your business.</p></div>
       <div class="ocs-composite" id="ocsComposite"></div>
-
       <p class="ocs-insufficient-note" id="ocsInsufficientNote" hidden></p>
-
       <div class="ocs-breakdown" id="ocsBreakdown"></div>
-
       <div class="ocs-leak" id="ocsLeak"></div>
-
       <div class="ocs-fixes" id="ocsFixes"></div>
-
-      <div class="ocs-report-actions">
-        <a href="index.html#contact" class="btn-primary btn-large">Book a diagnostic to fix this</a>
-        <button type="button" class="btn-ghost" id="ocsRestart">Re-run the scan</button>
-      </div>
-
-      <p class="ocs-method-note">Methodology: each answer is scored on how much you wrote, whether it includes anything concrete or checkable (a number, a named specific), and how much of it leans on generic filler language. No AI judgment, no external data — just your own words, measured consistently. <a href="#ocsMethodDetail" id="ocsMethodToggle">See exactly how a score is built</a></p>
+      <div class="ocs-report-actions"><a href="index.html#contact" class="btn-primary btn-large">Book a diagnostic to fix this <span aria-hidden="true">→</span></a><button type="button" class="btn-ghost" id="ocsRestart">Re-run the scan</button></div>
+      <p class="ocs-method-note">Methodology: each answer is measured for usable detail, concrete/checkable evidence, and generic filler language. No AI judgment. No external data. <a href="#ocsMethodDetail" id="ocsMethodToggle">See exactly how a score is built</a></p>
       <div class="ocs-method-detail" id="ocsMethodDetail" hidden></div>
-
     </div>
   </section>
-
 </main>
 
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <img src="assets/logo-rect.png" alt="Kartik Clarity" class="footer-logo">
-      <span class="footer-tag">Think. Focus. Achieve.</span>
-    </div>
-    <span class="footer-copy">© 2026 Kartik Clarity. Revenue Leak Architecture™ is a proprietary framework.</span>
-  </div>
-</footer>
-
+<footer class="footer"><div class="footer-inner"><div class="footer-brand"><span class="brand-mark brand-mark-text">KC</span><span class="footer-tag">Think. Focus. Achieve.</span></div><span class="footer-copy">© 2026 Kartik Clarity. Revenue Leak Architecture™ is a proprietary framework.</span></div></footer>
 <script>
-  var toggle = document.getElementById('navToggle');
-  var nav = document.getElementById('topnav');
-  toggle.addEventListener('click', function(){
-    var open = nav.classList.toggle('is-open');
-    toggle.classList.toggle('is-open', open);
-    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-  });
-  nav.querySelectorAll('a').forEach(function(link){
-    link.addEventListener('click', function(){
-      nav.classList.remove('is-open');
-      toggle.classList.remove('is-open');
-      toggle.setAttribute('aria-expanded', 'false');
-    });
-  });
+(function(){const t=document.getElementById('navToggle'),n=document.getElementById('topnav');t.addEventListener('click',()=>{const o=n.classList.toggle('is-open');t.classList.toggle('is-open',o);t.setAttribute('aria-expanded',String(o));t.setAttribute('aria-label',o?'Close menu':'Open menu')});n.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{n.classList.remove('is-open');t.classList.remove('is-open');t.setAttribute('aria-expanded','false');t.setAttribute('aria-label','Open menu')}));})();
 </script>
-<script src="assets/ocs.js"></script>
-<script src="assets/ocs-ui.js"></script>
+<script src="assets/ocs.js"></script><script src="assets/ocs-ui.js"></script>
 </body>
 </html>
