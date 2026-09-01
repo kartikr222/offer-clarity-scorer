@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kartik Clarity — Revenue Leak Architecture™</title>
+<meta name="description" content="Find the exact spots where your offer is leaking revenue. Take the free Offer Clarity Scorer from Kartik Clarity.">
+<link rel="icon" type="image/webp" href="assets/logo-circle.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a href="#top" class="brand">
+      <img src="assets/logo-circle.webp" alt="Kartik Clarity logo" class="brand-mark" width="44" height="44">
+      <span class="brand-name">Kartik Clarity</span>
+    </a>
+    <nav class="site-nav">
+      <a href="#scorer">Scorer</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="#contact" class="nav-cta">Book an audit</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero" id="scorer">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Revenue Leak Architecture™</p>
+        <h1>Your offer might be costing you sales — and you can't see where.</h1>
+        <p class="hero-sub">Answer seven quick questions about how you talk about your offer. Get a clarity score, and the exact points where prospects are leaking out before they buy.</p>
+      </div>
+
+      <div class="scorer-card" id="scorer-card">
+
+        <div class="scorer-intro" data-panel="intro">
+          <p class="scorer-kicker">Offer Clarity Scorer</p>
+          <p class="scorer-lead">Seven questions. About two minutes. A score you can act on today.</p>
+          <button class="btn btn-primary" id="start-btn" type="button">Start the scorer</button>
+        </div>
+
+        <form class="scorer-quiz" data-panel="quiz" hidden novalidate>
+          <div class="progress-track" aria-hidden="true">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+          <p class="q-count" id="q-count">Question 1 of 7</p>
+
+          <fieldset class="question active" data-q="0">
+            <legend>Can you say what your offer does in one plain sentence — no jargon?</legend>
+            <div class="scale" data-name="q0"></div>
+          </fieldset>
+
+          <fieldset class="question" data-q="1">
+            <legend>Do you know the exact, measurable result your offer delivers?</legend>
+            <div class="scale" data-name="q1"></div>
+          </fieldset>
+
+          <fieldset class="question" data-q="2">
+            <legend>Is it obvious who this is for — and who it's explicitly not for?</legend>
+            <div class="scale" data-name="q2"></div>
+          </fieldset>
+
+          <fieldset class="question" data-q="3">
+            <legend>Can a prospect explain your price and payment structure back to you after hearing it once?</legend>
+            <div class="scale" data-name="q3"></div>
+          </fieldset>
+
+          <fieldset class="question" data-q="4">
+            <legend>Do people know exactly what happens right after they say yes?</legend>
+            <div class="scale" data-name="q4"></div>
+          </fieldset>
+
+          <fieldset class="question" data-q="5">
+            <legend>Do you have proof — results, case studies, numbers — tied directly to your promise?</legend>
+            <div class="scale" data-name="q5"></div>
+          </fieldset>
+
+          <fieldset class="question" data-q="6">
+            <legend>Is there one obvious next step for someone who's interested right now?</legend>
+            <div class="scale" data-name="q6"></div>
+          </fieldset>
+
+          <div class="quiz-nav">
+            <button type="button" class="btn btn-ghost" id="back-btn" hidden>Back</button>
+            <button type="button" class="btn btn-primary" id="next-btn" disabled>Next</button>
+          </div>
+        </form>
+
+        <div class="scorer-result" data-panel="result" hidden>
+          <p class="result-tier" id="result-tier"></p>
+          <div class="result-score">
+            <span class="score-number" id="score-number">0</span>
+            <span class="score-max">/ 35</span>
+          </div>
+          <p class="result-summary" id="result-summary"></p>
+
+          <div class="leak-points" id="leak-points">
+            <p class="leak-heading">Where you're leaking the most</p>
+            <ul id="leak-list"></ul>
+          </div>
+
+          <div class="result-actions">
+            <a href="#contact" class="btn btn-primary">Book a free Revenue Leak Audit</a>
+            <button type="button" class="btn btn-ghost" id="retake-btn">Retake the scorer</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="how-it-works" id="how-it-works">
+    <div class="wrap">
+      <h2>Where the leaks usually are</h2>
+      <p class="section-sub">Every one of these questions maps to a place prospects quietly drop off — before they ever tell you why.</p>
+      <ol class="leak-map">
+        <li>
+          <span class="leak-index">1</span>
+          <h3>The one-sentence test</h3>
+          <p>If you can't say what you do in one breath, neither can the person who's supposed to refer you.</p>
+        </li>
+        <li>
+          <span class="leak-index">2</span>
+          <h3>The measurable result</h3>
+          <p>"Helping businesses grow" isn't a promise. A number, a timeframe, or a before/after is.</p>
+        </li>
+        <li>
+          <span class="leak-index">3</span>
+          <h3>The fit filter</h3>
+          <p>Offers that are for everyone convert like they're for no one. Exclusion builds trust.</p>
+        </li>
+        <li>
+          <span class="leak-index">4</span>
+          <h3>The price clarity</h3>
+          <p>Confusion about cost is the single fastest way to lose a warm lead at the finish line.</p>
+        </li>
+        <li>
+          <span class="leak-index">5</span>
+          <h3>The next-step clarity</h3>
+          <p>People don't act on maybes. One clear next step beats five good options.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap contact-grid">
+      <div>
+        <h2>Ready to see where your offer leaks?</h2>
+        <p>Bring your scorer results to a free 20-minute Revenue Leak Audit. We'll walk through your offer line by line and mark exactly where you're losing people.</p>
+      </div>
+      <a class="btn btn-primary btn-lg" href="mailto:hello@kartikclarity.com?subject=Revenue%20Leak%20Audit%20request">Email to book your audit</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <img src="assets/logo-rectangle.webp" alt="Kartik Clarity — Think. Focus. Achieve." class="footer-mark">
+    <p class="footer-tagline">Think. Focus. Achieve.</p>
+    <p class="footer-copy">© <span id="year"></span> Kartik Clarity. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
