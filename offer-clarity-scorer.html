@@ -28,9 +28,46 @@
     </div>
   </section>
 
-  <section class="ocs-wizard" id="ocsWizard" hidden><div class="ocs-wizard-inner"><div class="ocs-progress-wrap"><div class="ocs-progress-meta"><span id="ocsProgressLabel">Question 1 of 8</span><span class="ocs-progress-pct" id="ocsProgressPct">0%</span></div><div class="ocs-progress-bar"><div class="ocs-progress-fill" id="ocsProgressFill"></div></div></div><form id="ocsForm" class="ocs-form"><fieldset class="ocs-fieldset"><legend class="ocs-fieldset-legend" id="ocsQuestion"></legend><div class="ocs-fieldset-body" id="ocsFieldsetBody"></div></fieldset><div class="ocs-form-actions"><button type="button" class="btn-secondary" id="ocsPrevBtn" style="visibility:hidden;">← Back</button><button type="submit" class="btn-primary" id="ocsNextBtn">Next →</button></div></form></div></section>
+  <section class="ocs-wizard" id="ocsWizard" hidden>
+    <div class="ocs-wizard-inner">
+      <div class="ocs-progress-wrap">
+        <div class="ocs-progress-meta">
+          <span id="ocsProgressLabel">Question 1 of 8</span>
+          <span class="ocs-progress-pct" id="ocsProgressPercent">0%</span>
+        </div>
+        <div class="ocs-progress-bar">
+          <div class="ocs-progress-fill" id="ocsProgressFill"></div>
+        </div>
+      </div>
+      <div class="ocs-steps" id="ocsSteps"></div>
+      <div class="ocs-wizard-actions">
+        <button type="button" class="btn-secondary" id="ocsBack">← Back</button>
+        <button type="button" class="btn-secondary" id="ocsSkip">Skip this</button>
+        <button type="button" class="btn-primary" id="ocsNext">Next →</button>
+      </div>
+    </div>
+  </section>
 
-  <section class="ocs-report" id="ocsReport" hidden aria-live="polite"><div class="ocs-report-inner"><div class="ocs-report-head"><p class="ocs-kicker">YOUR RESULTS</p><h2 class="ocs-report-title">Offer Clarity Score: <span id="ocsOverallScore">0</span>/100</h2><p class="ocs-report-sub">Here's where your offer is strongest — and where it needs clarity most.</p></div><div class="ocs-report-body"><div class="ocs-gauge-wrap"><div class="ocs-gauge" id="ocsGauge"></div></div><table class="ocs-results-table"><thead><tr><th>Dimension</th><th>Your Score</th><th>What it means</th></tr></thead><tbody id="ocsResultsBody"></tbody></table><div class="ocs-recommendations"><h3>What to do next</h3><div class="ocs-rec-list" id="ocsRecList"></div></div><div class="ocs-actions"><button class="btn-secondary" id="ocsRetakeBtn">Retake the diagnostic</button><button class="btn-primary" id="ocsExportBtn">Export results</button></div></div></div></section>
+  <section class="ocs-report" id="ocsReport" hidden aria-live="polite">
+    <div class="ocs-report-inner">
+      <div class="ocs-report-head">
+        <p class="ocs-kicker">YOUR RESULTS</p>
+        <h2 class="ocs-report-title">Offer Clarity Score</h2>
+        <div class="ocs-composite" id="ocsComposite"></div>
+      </div>
+      <div class="ocs-report-body">
+        <div class="ocs-insufficient-note" id="ocsInsufficientNote" hidden></div>
+        <div class="ocs-breakdown" id="ocsBreakdown"></div>
+        <div class="ocs-leak" id="ocsLeak"></div>
+        <div class="ocs-fixes" id="ocsFixes"></div>
+        <p class="ocs-method-detail" id="ocsMethodDetail"></p>
+      </div>
+      <div class="ocs-report-actions">
+        <button type="button" class="btn-secondary" id="ocsRetake">Retake the diagnostic</button>
+        <button type="button" class="btn-primary" id="ocsExport">Export results</button>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer class="footer"><div class="footer-inner"><div class="footer-brand"><img src="assets/kartik-clarity-circle.jpg" alt="Kartik Clarity" class="footer-logo"><span class="footer-tag">Think. Focus. Achieve.</span></div></div></footer>
