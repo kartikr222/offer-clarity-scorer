@@ -1,0 +1,57 @@
+name: Deploy extracted site to main root
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  extract:
+    if: ${{ !contains(github.event.head_commit.message, '[skip-extract]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Extract production site
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f kartik-clarity-site.zip
+          rm -rf .site-extract
+          mkdir .site-extract
+          unzip -q kartik-clarity-site.zip -d .site-extract
+
+          root_index="$(find .site-extract -type f -name 'index.html' -print -quit)"
+          test -n "$root_index"
+          site_root="$(dirname "$root_index")"
+
+          # Remove only previously extracted production files; preserve repo metadata and the source ZIP.
+          find . -maxdepth 1 -type f \( -name 'index.html' -o -name 'styles.css' -o -name 'style.css' -o -name 'script.js' -o -name 'README.md' \) -delete
+          rm -rf assets
+
+          cp -a "$site_root"/. .
+          test -f index.html
+          test -f styles.css || test -f style.css
+          test -f script.js
+          test -f assets/logo-circle.webp
+          test -f assets/logo-rectangle.webp
+          rm -rf .site-extract
+
+      - name: Commit extracted production root
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if git diff --cached --quiet; then
+            echo 'No extracted changes to commit.'
+            exit 0
+          fi
+          git commit -m 'Deploy extracted Offer Clarity Scorer to root [skip-extract]'
+          git push origin main
