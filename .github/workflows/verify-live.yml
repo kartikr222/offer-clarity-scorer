@@ -1,0 +1,53 @@
+name: Verify live GitHub Pages site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Verify source files
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f index.html
+          test -f styles.css
+          test -f script.js
+          test -f assets/logo-circle.webp
+          test -f assets/logo-rectangle.webp
+          node --check script.js
+          grep -q 'var TOTAL_Q = 7' script.js
+          grep -q 'assets/logo-circle.webp' index.html
+          grep -q 'assets/logo-rectangle.webp' index.html
+
+      - name: Poll live GitHub Pages until healthy
+        shell: bash
+        run: |
+          set -euo pipefail
+          base='https://kartikr222.github.io/offer-clarity-scorer'
+          for i in $(seq 1 30); do
+            code=$(curl -L -sS -o /tmp/index.html -w '%{http_code}' "$base/" || true)
+            if [ "$code" = '200' ] && grep -q 'Kartik Clarity' /tmp/index.html; then
+              echo "Live homepage returned HTTP 200."
+              break
+            fi
+            echo "Attempt $i/30: live site not ready yet (HTTP $code)."
+            sleep 10
+            if [ "$i" = '30' ]; then exit 1; fi
+          done
+
+          curl -L -fsS "$base/assets/logo-circle.webp" -o /tmp/logo-circle.webp
+          curl -L -fsS "$base/assets/logo-rectangle.webp" -o /tmp/logo-rectangle.webp
+          test -s /tmp/logo-circle.webp
+          test -s /tmp/logo-rectangle.webp
+          curl -L -fsS "$base/styles.css" -o /tmp/styles.css
+          curl -L -fsS "$base/script.js" -o /tmp/script.js
+          grep -q 'Offer Clarity Scorer' /tmp/index.html
+          grep -q 'TOTAL_Q = 7' /tmp/script.js
+          echo 'LIVE_VERIFY_PASSED'
