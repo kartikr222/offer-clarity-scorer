@@ -11,20 +11,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="assets/ocs.css">
+<link rel="stylesheet" href="assets/brand.css">
 </head>
 <body>
-<header class="topbar">
-  <div class="topbar-inner">
-    <a class="brand" href="index.html" aria-label="Kartik Clarity home"><span class="brand-mark brand-mark-text">KC</span><span class="brand-word">Kartik Clarity</span></a>
-    <nav class="topnav" id="topnav" aria-label="Primary navigation">
-      <a href="index.html#architecture">The Architecture</a>
-      <a href="index.html#zones">Leak Zones</a>
-      <a href="offer-clarity-scorer.html" aria-current="page">Offer Scorer</a>
-      <a href="index.html#contact" class="topnav-cta">Book a diagnostic</a>
-    </nav>
-    <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="topnav"><span></span><span></span><span></span></button>
-  </div>
-</header>
+<header class="topbar"><div class="topbar-inner"><a class="brand" href="index.html" aria-label="Kartik Clarity home"><img src="assets/logo-circle.svg" alt="Kartik Clarity" class="brand-mark"><span class="brand-word">Kartik Clarity</span></a><nav class="topnav" id="topnav" aria-label="Primary navigation"><a href="index.html#architecture">The Architecture</a><a href="index.html#zones">Leak Zones</a><a href="offer-clarity-scorer.html" aria-current="page">Offer Scorer</a><a href="index.html#contact" class="topnav-cta">Book a diagnostic</a></nav><button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="topnav"><span></span><span></span><span></span></button></div></header>
 
 <main class="ocs">
   <section class="ocs-intro" id="ocsIntro">
@@ -38,41 +28,13 @@
     </div>
   </section>
 
-  <section class="ocs-wizard" id="ocsWizard" hidden>
-    <div class="ocs-wizard-inner">
-      <div class="ocs-progress-wrap">
-        <div class="ocs-progress-meta"><span id="ocsProgressLabel">Question 1 of 8</span><span id="ocsProgressPercent">13%</span></div>
-        <div class="ocs-progress" role="progressbar" aria-valuemin="1" aria-valuemax="8" aria-valuenow="1" id="ocsProgress"><div class="ocs-progress-track"><div class="ocs-progress-fill" id="ocsProgressFill"></div></div></div>
-      </div>
-      <form id="ocsForm" novalidate><div id="ocsSteps"></div></form>
-      <div class="ocs-nav">
-        <button type="button" class="btn-ghost ocs-back" id="ocsBack">← Back</button>
-        <button type="button" class="ocs-skip" id="ocsSkip">Skip — I don't have it yet</button>
-        <button type="button" class="btn-primary ocs-next" id="ocsNext">Next <span aria-hidden="true">→</span></button>
-      </div>
-      <p class="ocs-error" id="ocsError" role="alert" hidden></p>
-    </div>
-  </section>
+  <section class="ocs-wizard" id="ocsWizard" hidden><div class="ocs-wizard-inner"><div class="ocs-progress-wrap"><div class="ocs-progress-meta"><span id="ocsProgressLabel">Question 1 of 8</span><span id="ocsProgressPercent">13%</span></div><div class="ocs-progress" role="progressbar" aria-valuemin="1" aria-valuemax="8" aria-valuenow="1" id="ocsProgress"><div class="ocs-progress-track"><div class="ocs-progress-fill" id="ocsProgressFill"></div></div></div></div><form id="ocsForm" novalidate><div id="ocsSteps"></div></form><div class="ocs-nav"><button type="button" class="btn-ghost ocs-back" id="ocsBack">← Back</button><button type="button" class="ocs-skip" id="ocsSkip">Skip — I don't have it yet</button><button type="button" class="btn-primary ocs-next" id="ocsNext">Next <span aria-hidden="true">→</span></button></div><p class="ocs-error" id="ocsError" role="alert" hidden></p></div></section>
 
-  <section class="ocs-report" id="ocsReport" hidden aria-live="polite">
-    <div class="ocs-report-inner">
-      <div class="ocs-report-head"><p class="ocs-kicker">YOUR RESULTS</p><h2 class="ocs-report-title">Offer Clarity Report</h2><p class="ocs-report-sub">A consistent read of the evidence you supplied — not a guess about your business.</p></div>
-      <div class="ocs-composite" id="ocsComposite"></div>
-      <p class="ocs-insufficient-note" id="ocsInsufficientNote" hidden></p>
-      <div class="ocs-breakdown" id="ocsBreakdown"></div>
-      <div class="ocs-leak" id="ocsLeak"></div>
-      <div class="ocs-fixes" id="ocsFixes"></div>
-      <div class="ocs-report-actions"><a href="index.html#contact" class="btn-primary btn-large">Book a diagnostic to fix this <span aria-hidden="true">→</span></a><button type="button" class="btn-ghost" id="ocsRestart">Re-run the scan</button></div>
-      <p class="ocs-method-note">Methodology: each answer is measured for usable detail, concrete/checkable evidence, and generic filler language. No AI judgment. No external data. <a href="#ocsMethodDetail" id="ocsMethodToggle">See exactly how a score is built</a></p>
-      <div class="ocs-method-detail" id="ocsMethodDetail" hidden></div>
-    </div>
-  </section>
+  <section class="ocs-report" id="ocsReport" hidden aria-live="polite"><div class="ocs-report-inner"><div class="ocs-report-head"><p class="ocs-kicker">YOUR RESULTS</p><h2 class="ocs-report-title">Offer Clarity Report</h2><p class="ocs-report-sub">A consistent read of the evidence you supplied — not a guess about your business.</p></div><div class="ocs-composite" id="ocsComposite"></div><p class="ocs-insufficient-note" id="ocsInsufficientNote" hidden></p><div class="ocs-breakdown" id="ocsBreakdown"></div><div class="ocs-leak" id="ocsLeak"></div><div class="ocs-fixes" id="ocsFixes"></div><div class="ocs-report-actions"><a href="index.html#contact" class="btn-primary btn-large">Book a diagnostic to fix this <span aria-hidden="true">→</span></a><button type="button" class="btn-ghost" id="ocsRestart">Re-run the scan</button></div><p class="ocs-method-note">Methodology: each answer is measured for usable detail, concrete/checkable evidence, and generic filler language. No AI judgment. No external data. <a href="#ocsMethodDetail" id="ocsMethodToggle">See exactly how a score is built</a></p><div class="ocs-method-detail" id="ocsMethodDetail" hidden></div></div></section>
 </main>
 
-<footer class="footer"><div class="footer-inner"><div class="footer-brand"><span class="brand-mark brand-mark-text">KC</span><span class="footer-tag">Think. Focus. Achieve.</span></div><span class="footer-copy">© 2026 Kartik Clarity. Revenue Leak Architecture™ is a proprietary framework.</span></div></footer>
-<script>
-(function(){const t=document.getElementById('navToggle'),n=document.getElementById('topnav');t.addEventListener('click',()=>{const o=n.classList.toggle('is-open');t.classList.toggle('is-open',o);t.setAttribute('aria-expanded',String(o));t.setAttribute('aria-label',o?'Close menu':'Open menu')});n.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{n.classList.remove('is-open');t.classList.remove('is-open');t.setAttribute('aria-expanded','false');t.setAttribute('aria-label','Open menu')}));})();
-</script>
+<footer class="footer"><div class="footer-inner"><div class="footer-brand"><img src="assets/logo-circle.svg" alt="Kartik Clarity" class="footer-logo"><span class="footer-tag">Think. Focus. Achieve.</span></div><span class="footer-copy">© 2026 Kartik Clarity. Revenue Leak Architecture™ is a proprietary framework.</span></div></footer>
+<script>(function(){const t=document.getElementById('navToggle'),n=document.getElementById('topnav');t.addEventListener('click',()=>{const o=n.classList.toggle('is-open');t.classList.toggle('is-open',o);t.setAttribute('aria-expanded',String(o));t.setAttribute('aria-label',o?'Close menu':'Open menu')});n.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{n.classList.remove('is-open');t.classList.remove('is-open');t.setAttribute('aria-expanded','false');t.setAttribute('aria-label','Open menu')}));})();</script>
 <script src="assets/ocs.js"></script><script src="assets/ocs-ui.js"></script>
 </body>
 </html>
